@@ -1,0 +1,17 @@
+<section class="px-4 pt-5">
+    <div class="row">
+        <div class="col-4">
+            <img src="https://picsum.photos/200" alt="">
+        </div>
+        <div class="col-8 position-relative">
+            <h5>{{authService.currentUserSignal()['firstName']}} {{authService.currentUserSignal()['lastName']}}</h5>
+            <span class="username">{{authService.currentUserSignal()['userName']}}</span>
+            <h6>
+                <p class="mt-3">800 Followers</p>
+                <p>300 Following</p>
+            </h6>
+            <input type="file" (change)="onFileChange($event)">
+            <h4><i class="bi bi-gear position-absolute settingIcon"></i></h4>
+        </div>
+    </div>
+</section>

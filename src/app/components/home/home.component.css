@@ -1,0 +1,47 @@
+.container-fluid {
+    height: 100%;
+}
+
+.navbar {
+    height: 100%;
+
+}
+
+.active {
+    background-color: #393e47;
+}
+
+.navbar-nav {
+    width: 90%;
+}
+
+.nav-item {
+    font-size: 17px;
+}
+
+.nav-link {
+    padding: 5% 0;
+}
+
+.navigation {
+    border-right: 1px solid #393e47;
+}
+
+.mid-section {
+    height: 100vh;
+    overflow-y: auto;
+    color: white;
+    padding: 0 50px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #393e47;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+}

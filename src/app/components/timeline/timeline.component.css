@@ -1,0 +1,86 @@
+section {
+    padding: 0 50px;
+}
+
+.post-card {
+    width: 100%;
+    border: 1px solid #393e47;
+}
+
+.user-profile {
+    border-radius: 50%;
+}
+
+.action-btns {
+    font-size: 18px;
+}
+
+.postImg {
+    height: 50%;
+    width: 90%;
+    margin: 0 20px;
+}
+
+.add-post {
+    border: 1px solid #393e47;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: white;
+    margin-left: 20px;
+}
+
+textarea:focus {
+    color: white;
+}
+
+.post-btn {
+    background-color: #393e47;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 1% 4%;
+}
+
+::ng-deep .dropdown-menu {
+    --bs-dropdown-border-radius: none !important;
+    color: white !important;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: transparent !important;
+    color: none !important;
+}
+
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #393e47;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.image-upload {
+    display: none;
+}

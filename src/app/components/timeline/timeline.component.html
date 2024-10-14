@@ -1,0 +1,64 @@
+<section class="px-5">
+    <form class="col-12 p-3 mt-5 add-post" [formGroup]="postForm">
+        <div class="d-flex">
+            <img src="https://picsum.photos/50" alt="" class="">
+            <textarea name="" id="" placeholder="Share your thoughts!" formControlName="postCaption"></textarea>
+        </div>
+        <div class="d-flex justify-content-center w-100 mb-5 mt-3" *ngIf="!downloadUrl && showPostLoader">
+            <div class="loader"></div>
+        </div>
+        <div class="my-4 text-center" *ngIf="downloadUrl">
+            <img class="postImg" src="{{downloadUrl}}" alt="">
+        </div>
+        <div class="mt-5 d-flex justify-content-end align-items-center">
+            <h5 class="me-4">
+                <i class="bi bi-image-fill cursor-pointer" (click)="fileInput.click()"></i>
+                <span><input type="file" class="image-upload" accept=".png, .jpg, .jpeg" #fileInput (change)="onFileChange($event)"></span>
+            </h5>
+            <button class="post-btn" (click)="sharePost()" [disabled]="!downloadUrl && !postForm.get('postCaption').value">Post</button>
+        </div>
+    </form>
+    <div class="col-12 post-card p-3 my-5" *ngFor="let item of allPosts; let i=index">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <img src="{{item.createdBy.profileImage}}" class="user-profile me-3" alt="">
+                <h5>{{item.createdBy.userName}}</h5>
+            </div>
+            <div class="dropdown">
+                <i class="bi bi-three-dots-vertical cursor-pointer" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item">Show Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="pt-4">
+            <div class="ps-4 ms-2">
+                <span *ngIf="!showText[i]">{{item.postCaption | truncate:lettersLimit}}</span>
+                <span *ngIf="showText[i]">{{item.postCaption}}</span>
+                <a class="primary cursor-pointer" *ngIf="item.postCaption.length >= lettersLimit"
+                    (click)="showText[i] = !showText[i]">
+                    {{ showText[i] ? 'less' : '...more' }}
+                </a>
+            </div>
+            <div *ngIf="item.postImage" class="text-center mt-4">
+                <img src="{{item.postImage}}" alt="" class="postImg">
+            </div>
+        </div>
+        <div class="action-btns pt-4 d-flex justify-content-end">
+            <div class="px-3">
+                <i class="bi bi-heart pe-2"></i>
+                <span>100</span>
+            </div>
+            <div class="px-3">
+                <i class="bi bi-chat pe-2"></i>
+                <span>50</span>
+            </div>
+            <div class="px-3">
+                <i class="bi bi-bookmark"></i>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* .dark-theme {
+    --text-color: white;
+    --background-color:;
+} */
+
+.main-body {
+    background-color: #141614;
+    color: white;
+}
+
+.cursor-pointer{
+    cursor: pointer !important;
+}

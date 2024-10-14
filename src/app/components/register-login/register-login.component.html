@@ -1,0 +1,100 @@
+<div class="main-div container-fluid">
+    <div class="row h-100">
+        <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+            <div class="text-center">
+                <h1>TEA</h1>
+                <img src="../../../assets/three-girlfriends.png" alt="">
+                <h2>Share Your Tea!</h2>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-9 col-sm-12">
+                        <div class="">
+                            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation"> <button class="nav-link active"
+                                        id="faq_tab_1-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_1"
+                                        type="button" role="tab" aria-controls="faq_tab_1" aria-selected="true">
+                                        <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i>
+                                            <span>Register</span>
+                                        </div>
+                                    </button> </li>
+                                <li class="nav-item" role="presentation"> <button class="nav-link" id="faq_tab_2-tab"
+                                        data-bs-toggle="tab" data-bs-target="#faq_tab_2" type="button" role="tab"
+                                        aria-controls="faq_tab_2" aria-selected="false">
+                                        <div class="d-flex flex-column lh-lg"> <i class='bx bxs-shopping-bag'></i>
+                                            <span>Login</span>
+                                        </div>
+                                    </button> </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane px-3 active show" id="faq_tab_1" role="tabpanel"
+                                    aria-labelledby="faq_tab_1-tab">
+                                    <form class="" [formGroup]="registerForm">
+                                        <div class="row mt-3">
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">First Name</label>
+                                                <input type="text" formControlName="firstName" class="w-100 my-1 form-control" placeholder="First Name">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">Last Name</label>
+                                                <input type="text" formControlName="lastName" class="w-100 my-1 form-control" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">Create a Username</label>
+                                                <input type="text" formControlName="userName" class="w-100 my-1 form-control" placeholder="Enter Username">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">Phone Number</label>
+                                                <input type="number" formControlName="phoneNumber" class="w-100 my-1 form-control" placeholder="Enter a Phone Number">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="w-100">
+                                                <label for="">Email ID</label>
+                                                <input type="text" formControlName="email" class="w-100 my-1 form-control" placeholder="Enter your Email ID">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">Password</label>
+                                                <input type="text" formControlName="password" class="w-100 my-1 form-control" placeholder="Enter a Password">
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <label for="">Confirm Password</label>
+                                                <input type="text" class="w-100 my-1 form-control" placeholder="Enter Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div class="w-100 mt-3 mb-3">
+                                            <button class="custom-button w-100" (click)="onRegister()">Register</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="faq_tab_2" role="tabpanel"
+                                    aria-labelledby="faq_tab_2-tab">
+                                    <form [formGroup]="loginForm">
+                                        <div class="w-100 mt-3">
+                                            <label for="">Email ID</label>
+                                            <input type="text" formControlName="email" class="w-100 my-1 form-control" placeholder="Enter your Email ID">
+                                        </div>
+                                        <div class="w-100 mt-3">
+                                            <label for="">Password</label>
+                                            <input type="text" formControlName="password" class="w-100 my-1 form-control" placeholder="Enter a Password">
+                                        </div>
+                                        <div class="w-100 mt-3 mb-3">
+                                            <button class="custom-button w-100" (click)="onLogin()">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
