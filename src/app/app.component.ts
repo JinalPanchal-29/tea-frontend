@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ThemeService } from './services/theme.service';
+import { API_ENDPOINTS } from './constants/api-constant';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +24,10 @@ export class AppComponent {
   }
 
   getUserDetails(){
-    let url = "http://localhost:3000/user/getUserDetails"
+    let url = API_ENDPOINTS.user.getUserDetails;
     this.http.get(url).subscribe((res)=>{
       console.log("res",res)
-      this.authService.setCurrentUser(res['userDetails'])
+      this.authService.setCurrentUser(res['data'])
       console.log(this.authService.currentUserSignal())
     })
   }

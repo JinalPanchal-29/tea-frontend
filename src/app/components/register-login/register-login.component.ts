@@ -37,13 +37,13 @@ export class RegisterLoginComponent {
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      pass: ['', Validators.required]
     })
   }
 
   ngOnInit(){
-    this.loginForm.get('email').setValue("jinalpanchal2912@gmail.com")
-    this.loginForm.get('password').setValue("JinalP2912")
+    this.loginForm.get('email').setValue("akhileshpillai1@gmail.com")
+    this.loginForm.get('pass').setValue("Ace2314@@")
   }
 
   goHome(){
