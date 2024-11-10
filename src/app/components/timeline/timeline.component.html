@@ -15,7 +15,7 @@
                 <i class="bi bi-image-fill cursor-pointer" (click)="fileInput.click()"></i>
                 <span><input type="file" class="image-upload" accept=".png, .jpg, .jpeg" #fileInput (change)="onFileChange($event)"></span>
             </h5>
-            <button class="post-btn" (click)="sharePost()" [disabled]="!downloadUrl && !postForm.get('postCaption').value">Post</button>
+            <button class="post-btn" [disabled]="!downloadUrl && !postForm.get('postCaption').value">Post</button>
         </div>
     </form>
     <div class="col-12 post-card p-3 my-5" *ngFor="let item of allPosts; let i=index">

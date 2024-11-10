@@ -45,27 +45,27 @@ export class TimelineComponent {
     })
   }
 
-  sharePost() {
-    this.postForm.get('postImage').setValue(this.downloadUrl);
-    let url = "http://localhost:3000/post/createPost"
-    const payLoad = {
-      "createdBy": {
-        "profileImage": "https://picsum.photos/50",
-        "userName": this.userDetails.userName
-      },
-      "postCaption": this.postForm.getRawValue().postCaption,
-      "postImage": this.postForm.getRawValue().postImage,
-      "likedBy": [],
-      "comments": []
-    }
+  // sharePost() {
+  //   this.postForm.get('postImage').setValue(this.downloadUrl);
+  //   let url = "http://localhost:3000/post/createPost"
+  //   const payLoad = {
+  //     "createdBy": {
+  //       "profileImage": "https://picsum.photos/50",
+  //       "userName": this.userDetails.userName
+  //     },
+  //     "postCaption": this.postForm.getRawValue().postCaption,
+  //     "postImage": this.postForm.getRawValue().postImage,
+  //     "likedBy": [],
+  //     "comments": []
+  //   }
 
-    this.http.post(url, payLoad).subscribe((res) => {
-      this.postForm.reset();
-      this.downloadUrl = ""
-      this.showPostLoader = false;
-      this.getAllPosts();
-    })
-  }
+  //   this.http.post(url, payLoad).subscribe((res) => {
+  //     this.postForm.reset();
+  //     this.downloadUrl = ""
+  //     this.showPostLoader = false;
+  //     this.getAllPosts();
+  //   })
+  // }
 
   async onFileChange(event: any) {
     const file = event.target.files[0];

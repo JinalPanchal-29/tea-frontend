@@ -1,10 +1,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-sm-2 navigation">
-            <nav class="navbar navbar-expand-lg navbar-dark flex-column vh-100">
+            <nav class="navbar navbar-expand-lg navbar-dark flex-column vh-100" [ngClass]="{'navbar-dark': theme == 'dark', 'navbar-light': theme == 'light'}">
                 <div class="w-100 d-flex justify-content-center">
                     <ul class="navbar-nav flex-column">
-                        <a class="navbar-brand mb-5 ps-4" href="#"><img src="../../../assets/tea.png" alt=""> TEA</a>
+                        <a class="navbar-brand mb-5 ps-4" *ngIf="theme == 'dark'" href="#"><img src="../../../assets/tea.png" alt=""> TEA</a>
+                        <a class="navbar-brand mb-5 ps-4" *ngIf="theme == 'light'" href="#"><img src="../../../assets/tea-dark.png" alt=""> TEA</a>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/home/timeline" routerLinkActive="active"><i class="bi bi-house-fill px-3"></i> Home</a>
                         </li>
@@ -15,7 +16,10 @@
                             <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="bi bi-people-fill px-3"></i>Friends</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="bi bi-brightness-high-fill px-3"></i>Light</a>
+                            <a class="nav-link cursor-pointer" routerLinkActive="active" (click)="toggleTheme()">
+                                <span *ngIf="theme == 'dark'"><i class="bi bi-brightness-high-fill px-3"></i>Light</span>
+                                <span *ngIf="theme == 'light'"><i class="bi bi-moon-fill px-3"></i> Dark</span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/home/bookmark" routerLinkActive="active"><i class="bi bi-bookmark-fill px-3"></i>Bookmarks</a>

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, inject, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { API_ENDPOINTS } from 'src/app/constants/api-constant';
 
 @Component({
   selector: 'app-register-login',
@@ -17,8 +18,8 @@ export class RegisterLoginComponent {
 
   registerForm: FormGroup;
   loginForm: FormGroup;
-
-
+  confirmPass;
+  validPassword: boolean = false;
   viewMode:string = 'register'
   
 
@@ -30,7 +31,7 @@ export class RegisterLoginComponent {
       lastName: ['', Validators.required],
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      pass: ['', Validators.required],
       phoneNumber: ['', Validators.required]
     })
 
@@ -41,8 +42,8 @@ export class RegisterLoginComponent {
   }
 
   ngOnInit(){
-    this.loginForm.get('email').setValue("jinal@gmail.com")
-    this.loginForm.get('password').setValue("jinal")
+    this.loginForm.get('email').setValue("jinalpanchal2912@gmail.com")
+    this.loginForm.get('password').setValue("JinalP2912")
   }
 
   goHome(){
@@ -50,19 +51,34 @@ export class RegisterLoginComponent {
   }
 
   onRegister(){
-    let url = "http://localhost:3000/user/createUser"
+    let url = API_ENDPOINTS.authentication.register;
     this.http.post(url, this.registerForm.getRawValue()).subscribe((res)=>{
     })
     this.router.navigate(['home/timeline'])
   }
 
   onLogin(){
-    let url = "http://localhost:3000/user/login"
-    this.http.post(url, this.loginForm.getRawValue()).subscribe((res)=>{
-      localStorage.setItem('token', res['accessToken'])
-      this.authService.setCurrentUser(res['userDetails'])
+    let url;
+    let userEmail = this.loginForm.get('email').value
+    let password = this.loginForm.get('pass').value
+
+    console.log(API_ENDPOINTS.authentication.login)
+
+    url = API_ENDPOINTS.authentication.login + "email=" + userEmail +"&password="+ password
+    this.http.get(url).subscribe((res)=>{
+      console.log(res['data'].token)
+      localStorage.setItem('token', res['data'].token)
+      this.authService.setCurrentUser(res['data'].user)
       this.router.navigate(['home/timeline'])
     })
     
+  }
+
+  comparePass(event) {
+    this.confirmPass = event.target.value;
+    if(this.confirmPass == this.registerForm.get('pass').value){
+      this.validPassword = true;
+    }
+    console.log(event.target.value)
   }
 }

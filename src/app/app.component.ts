@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,14 @@ export class AppComponent {
   title = 'tea-frontend';
   authService = inject(AuthService)
   http = inject(HttpClient)
+  constructor(private themeService: ThemeService){}
 
   ngOnInit(){
     this.getUserDetails()
+    this.themeService.theme.subscribe((theme) => {
+      document.body.classList.remove('light-theme', 'dark-theme')
+      document.body.classList.add(`${theme}-theme`)
+    })
   }
 
   getUserDetails(){

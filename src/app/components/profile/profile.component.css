@@ -4,7 +4,7 @@
 }
 
 .username {
-    background-color: #393e47;
+    background-color: var(--primary-color);
     padding: 3px 5px;
     margin: 6px 0;
 }

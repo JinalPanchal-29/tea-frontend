@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { HomeComponent } from './components/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BookmarkComponent } from './components/bookmark/bookmark.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
@@ -13,7 +13,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from  '@angular/common/http';
 import { AngularFireModule} from '@angular/fire/compat';
 import { AngularFireStorageModule} from '@angular/fire/compat/storage'
-import { environment } from './environments/environment';
+import { environment } from 'src/environments/environment';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
@@ -29,9 +29,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule
   ],
   providers: [
